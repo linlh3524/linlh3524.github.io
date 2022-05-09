@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>热榜</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+    <style>
+        .box {
+            display: flex;
+            align-items: center
+        }
+        
+        .panel-footer {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container-fluid  " style="background-color: #eee;">
+            <h1 class="text-center">{{ message }}</h1>
+            <div class="row">
+                <div class="col-xs-12  ">
+                    <div class="panel-group" id="accordion" v-for="item in data" style="background-color: #fff; margin:2%;" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" :id="addPre('heading',item.type)">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" :href="addPre('#collapse',item.type)" aria-expanded="true" :aria-controls="addPre('collapse',item.type)">
+                                        <div class="row page-header box">
+                                            <div class="col-xs-3 col-md-1 col-xs-offset-1"><img :src="'./img/'+item.type+'.svg'" class="img-responsive" alt="Responsive image"></div>
+                                            <div class="col-xs-9  ">
+                                                <h4>{{item.name}} <small>({{item.upToNow}})</small></h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </h4>
+                            </div>
+                            <!-- :class="{in:item.type=='weibo'}" 默认第一个展开 -->
+                            <div :id="addPre('collapse',item.type)" class="panel-collapse collapse  " role="tabpanel" :aria-labelledby="addPre('heading',item.type)">
+                                <div class="panel-body">
+                                    <ul style="list-style: none;">
+
+                                        <li v-for="(i, index) in item.trendingItemList">
+                                            <h5>{{index+1}}.<a :href="i.link">{{i.title}}</a> <small>{{i.titleTag}}</small></h5>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- <a role="button" data-toggle="collapse" data-parent="#accordion" :href="addPre('#collapse',item.type)" aria-expanded="true" :aria-controls="addPre('collapse',item.type)">
+                                <div class="panel-footer">折叠</div>
+                            </a> -->
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <!-- <div v-for="item in data" style="background-color: #fff; margin:2%;padding:1%" class="panel panel-default">
+
+                <div class="row page-header box">
+                    <div class="col-xs-3 col-md-1 col-xs-offset-1"><img :src="item.logo" class="img-responsive" alt="Responsive image"></div>
+                    <div class="col-xs-6">
+                        <h4>{{item.name}} <small>({{item.upToNow}})</small></h4>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <ol>
+                        <li v-for="i in item.trendingItemList">
+                            <h5><a :href="i.link">{{i.title}}</a> <small>{{i.titleTag}}</small></h5>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="panel-footer">折叠</div>
+            </div> -->
+        </div>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: '各大平台热榜',
+                data: []
+
+            },
+            methods: {
+                addPre: function(p, s) {
+                    return p + s
+                }
+            },
+            mounted: function() {
+                var _that = this
+
+                $.ajax({
+                    url: 'https://api.mdnice.com/trendings?sex=2',
+                    dataType: 'JSON',
+                    type: 'GET',
+                    success: function(data) {
+                        var tmp = []
+                        tmp[0] = data.data[1] //微博
+                        tmp[1] = data.data[0] //知乎
+                        tmp[2] = data.data[2] //头条
+                        tmp[3] = data.data[9] //豆瓣
+                        tmp[4] = data.data[6] //B站
+                        tmp[5] = data.data[5] //天涯
+                        tmp[6] = data.data[4] //虎扑
+                        tmp[7] = data.data[7] //CSDN
+                        tmp[8] = data.data[8] //Github
+                        _that.data = tmp
+                        console.log(data.data)
+
+                    }
+                });
+
+
+
+
+
+
+
+
+            }
+        })
+    </script>
+</body>
+
+</html>
