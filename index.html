@@ -2,17 +2,14 @@
 <html>
 
 <head>
-    <meta charset="utf-8" name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>坐在井口的呱呱</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
-            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
 
     <style>
@@ -20,7 +17,7 @@
             display: flex;
             align-items: center
         }
-
+        
         .panel-footer {
             background-color: #fff;
         }
@@ -28,32 +25,77 @@
 </head>
 
 <body>
-<div id="app">
-    <div class="container-fluid  " style="background-color: #eee;">
-        <h1 class="text-center">{{ message }}</h1>
-        <div class="row">
-            <div class="col-xs-4">
-                <a href="html/hotness.html">
-                    <li class="list-group-item">热榜</li>
-                </a></div>
-            <div class="col-xs-4"><a href="html/tools.html">
-                <li class="list-group-item">工具</li>
-            </a></div>
-            <div class="col-xs-4"> <li class="list-group-item">收藏</li></div>
+    <div id="app">
+        <div class="container-fluid  " style="background-color: #eee;">
+            <h1 class="text-center">{{ message }}</h1>
+
+
+
+            <div class="row">
+                <div class="col-xs-12  ">
+                    <div class="panel-group" style="background-color: #fff; margin:2%;" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab">
+                                <h4 class="panel-title">
+                                    <a role="button" href="html/hotness.html">
+                                        <div class="row page-header box">
+                                            <div class="col-xs-3 col-md-1 col-xs-offset-1"><img src='img/hotness.svg' class="img-responsive" alt="Responsive image"></div>
+                                            <div class="col-xs-9  ">
+                                                <h4>热点 <small>各大平台热榜</small></h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </h4>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel-group" style="background-color: #fff; margin:2%;" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab">
+                                <h4 class="panel-title">
+                                    <a role="button" href="html/tools.html">
+                                        <div class="row page-header box">
+                                            <div class="col-xs-3 col-md-1 col-xs-offset-1"><img src='img/tools.svg' class="img-responsive" alt="Responsive image"></div>
+                                            <div class="col-xs-9  ">
+                                                <h4>工具 <small>常用工具归纳</small></h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </h4>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel-group" style="background-color: #fff; margin:2%;" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab">
+                                <h4 class="panel-title">
+                                    <a role="button" href="html/collection.html">
+                                        <div class="row page-header box">
+                                            <div class="col-xs-3 col-md-1 col-xs-offset-1"><img src='img/collection.svg' class="img-responsive" alt="Responsive image"></div>
+                                            <div class="col-xs-9  ">
+                                                <h4>收藏 <small>一些有意思的东东</small></h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </h4>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
         </div>
-        <!--        <ul class="list-group">-->
-        <!--            <a href="html/hotness.html"> <li class="list-group-item">热榜</li></a>-->
-        <!--            <a href="html/tools.html"> <li class="list-group-item">工具</li></a>-->
-
-
-        <!--        </ul>-->
 
     </div>
 
-</div>
 
-
-<script src="./scripts/tools.js"></script>
+    <script src="./scripts/tools.js"></script>
 </body>
 
 </html>
