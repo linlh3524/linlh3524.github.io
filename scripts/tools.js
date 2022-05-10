@@ -2,15 +2,61 @@ new Vue({
     el: '#app',
     data: {
         message: '坐在井口的呱呱',
-        data: []
+        data: [],
+        tools: [{
+                id: 1,
+                name: "图片压缩",
+                url: "https://tinypng.com/",
+                logo: "https://tinypng.com/images/panda-chewing-2x.png"
+            },
+            {
+                id: 2,
+                name: "图片放大",
+                url: "https://bigjpg.com/",
+                logo: "https://bigjpg.com/static/css/touch-icon-ipad-retina.png"
+            },
+            {
+                id: 3,
+                name: "谷歌翻译",
+                url: "https://translate.google.cn/",
+                logo: "https://ssl.gstatic.com/translate/favicon.ico"
+            },
+            {
+                id: 4,
+                name: "百度脑图",
+                url: "https://naotu.baidu.com",
+                logo: "https://naotu.baidu.com/favicon.ico"
+            },
+            {
+                id: 5,
+                name: "鸠摩搜书",
+                url: "https://www.jiumodiary.com/",
+                logo: "https://www.jiumodiary.com/images/apple/apple-144.png"
+            },
+            {
+                id: 6,
+                name: "数据结构可视化",
+                url: "https://www.cs.usfca.edu/~galles/visualization/",
+                logo: "https://www.cs.usfca.edu/~galles/visualization/favicon.ico"
+            },
+            {
+                id: 7,
+                name: "二维码生成",
+                url: "https://cli.im/mob",
+                logo: "http://static.clewm.net/static/images/favicon.ico"
+            },
+        ]
 
     },
     methods: {
         addPre: function(p, s) {
             return p + s
         }
+
     },
-    meta:{},
+    meta: {
+        keepAlive: true
+    },
 
     mounted: function() {
         var _that = this
