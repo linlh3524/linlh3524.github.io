@@ -43,7 +43,7 @@ new Vue({
                 id: 7,
                 name: "图片编辑",
                 url: "https://www.iloveimg.com/zh-cn",
-                logo: "https://www.iloveimg.com/zh-cn/img/favicons-img/favicon-16x16.png"
+                logo: "https://www.iloveimg.com/img/favicons-img/favicon-16x16.png"
             },
             {
                 id: 8,
