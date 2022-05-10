@@ -35,6 +35,49 @@ new Vue({
             },
             {
                 id: 6,
+                name: "幕布笔记",
+                url: "https://mubu.com/",
+                logo: "https://mubu.com/favicon.ico"
+            },
+            {
+                id: 7,
+                name: "图片编辑",
+                url: "https://www.iloveimg.com/zh-cn",
+                logo: "https://www.iloveimg.com/zh-cn/img/favicons-img/favicon-16x16.png"
+            },
+            {
+                id: 8,
+                name: "简视频",
+                url: "https://www.aewz.com/",
+                logo: "https://www.aewz.com/logo.png"
+            },
+            {
+                id: 9,
+                name: "在线PS",
+                url: "https://www.photopea.com/",
+                logo: "https://www.photopea.com/promo/icon512.png"
+            },
+            // {
+            //     id: 9,
+            //     name: "",
+            //     url: "",
+            //     logo: ""
+            // },
+            // {
+            //     id: 9,
+            //     name: "",
+            //     url: "",
+            //     logo: ""
+            // },
+            // {
+            //     id: 9,
+            //     name: "",
+            //     url: "",
+            //     logo: ""
+            // },
+
+            {
+                id: 6,
                 name: "数据结构可视化",
                 url: "https://www.cs.usfca.edu/~galles/visualization/",
                 logo: "https://www.cs.usfca.edu/~galles/visualization/favicon.ico"
