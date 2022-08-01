@@ -35,5 +35,4 @@ const data = [{
         "bigImage": "https://images.pexels.com/photos/235615/pexels-photo-235615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     }
 ]
-
-export default data
+ 
